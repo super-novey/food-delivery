@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/pages/cart_page.dart';
 
 class MySliverAppBar extends StatelessWidget {
   final Widget child;
@@ -15,7 +16,14 @@ class MySliverAppBar extends StatelessWidget {
       actions: [
         // cart button
         IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // go to cart page
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CartPage(),
+                  ));
+            },
             icon: Icon(
               Icons.shopping_cart,
             ))
@@ -24,6 +32,8 @@ class MySliverAppBar extends StatelessWidget {
       foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       title: Text("Sunset Diner"),
       flexibleSpace: FlexibleSpaceBar(
+        expandedTitleScale:
+            1, //set scale of title of flexiableSpaceBar when making scroll up
         background: Padding(
           padding: const EdgeInsets.only(bottom: 50),
           child: child,
